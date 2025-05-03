@@ -9,3 +9,96 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+body {
+    background-color: #F5F5F5;
+}
+
+h1 {
+    font-weight: lighter !important;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    width: 100%;
+    background-color: #F5F5F5;
+    padding: 10px 40px;
+    font-size: 1.1rem;
+}
+
+input:focus {
+    outline: 1px solid rgb(196, 196, 196);
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+    font-size: 1rem;
+    margin: 0px;
+}
+
+ul>li {
+    padding: 10px 40px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    color: rgb(78, 78, 78);
+    position: relative;
+}
+
+ul>li>span {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 20px;
+    color: red;
+    font-size: 2rem;
+    opacity: 0;
+}
+
+ul>li>span>i {
+    font-style: normal;
+    cursor: pointer;
+    padding: 10px;
+}
+
+ul>li>span:hover {
+    opacity: 1;
+}
+
+.all-task-info {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+    font-size: .7rem;
+    color: gray;
+    width: 100%;
+    background-color: #F5F5F5;
+}
+
+.decoration {
+    border: 0px solid green;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.decoration>div:nth-child(1),
+.decoration>div:nth-child(2) {
+    height: 20px;
+    margin: 0px 5px;
+    transform: translateY(-80%);
+    z-index: -99;
+    position: absolute;
+    width: 99%;
+    background-color: #F5F5F5;
+    border: 1px solid #dee2e6;
+}
+
+.decoration>div:nth-child(2) {
+    transform: translateY(-60%);
+    width: 98%;
+    z-index: -999;
+}

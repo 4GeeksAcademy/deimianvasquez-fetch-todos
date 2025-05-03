@@ -1,26 +1,53 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+const urlBase = "https://rickandmortyapi.com/api"
 
-//create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+	const [characters, setCharacters] = useState([])
+
+	// manejada con el then 
+	// const getAllCharacter = () => {
+	// 	fetch(`${urlBase}/character`)
+	// 		.then((response) => response.json())
+	// 		.then((data) => setCharacters(data.results))
+	// 		.catch((error) => console.log(error))
+	// }
+
+	// async / await
+	const getAllCharacterAsync = async () => {
+		try {
+			// consultamos la API
+			const response = await fetch(`${urlBase}/character`)
+			const data = await response.json()
+			setCharacters(data.results)
+
+		} catch (error) {
+			console.log(error)
+		}
+
+	}
+
+	async function example() { }
+
+	useEffect(() => {
+		// getAllCharacter()
+		getAllCharacterAsync()
+	}, [])
+
+	return (
+		<div className="container">
+			<div className="row">
+				<div className="col-12">
+					{
+						characters.map((item) => (
+							<p key={item.id}>
+								Hola ¿qué tal <span className="text-danger">{item.name}</span> ?
+							</p>
+						))
+					}
+				</div>
+			</div>
 		</div>
 	);
 };
