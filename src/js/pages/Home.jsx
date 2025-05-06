@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Navbar } from "../components/Navbar";
 
 const urlBase = "https://rickandmortyapi.com/api"
 
@@ -36,19 +37,22 @@ const Home = () => {
 	}, [])
 
 	return (
-		<div className="container">
-			<div className="row">
-				<div className="col-12">
-					{
-						characters.map((item) => (
-							<p key={item.id}>
-								Hola ¿qué tal <span className="text-danger">{item.name}</span> ?
-							</p>
-						))
-					}
+		<>
+			
+			<div className="container">
+				<div className="row">
+					<div className="col-12">
+						{
+							characters.map((item) => (
+								<p key={item.id}>
+									Hola ¿qué tal <span className="text-danger">{item.name}</span> ?
+								</p>
+							))
+						}
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
